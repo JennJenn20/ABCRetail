@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ABCRetailWebApplication.Models.Contract>
+
+@{
+    ViewData["Title"] = "Contract List";
+}
+
+<h1>Contract List</h1>
+
+<p>
+    <a asp-action="Create">Create New Contract</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>FilePath</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contract in Model)
+        {
+            <tr>
+                <td>@contract.Title</td>
+                <td>@contract.FilePath</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@contract.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@contract.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
